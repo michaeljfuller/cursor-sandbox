@@ -94,3 +94,123 @@ Here is what was added and how to use it.
 `npx tsc --noEmit` succeeds under `storyblok-conditional-template/tsconfig.json`.
 
 All related todos are marked completed. The plan file itself was not modified.
+
+----
+
+## Example content follow-up
+> Please also provide an example of how these can be used in Storyblok.
+
+Adding concrete editor-facing Storyblok usage examples (what to create and how it evaluates across the three scopes).  
+Perfect follow-up. Here’s a concrete Storyblok editor example you can use immediately.
+
+### Example: one page with all 3 scopes
+Use a page body like this (JSON-style view of blok content).
+It demonstrates:
+- `server_cached` with date + locale
+- `server_cookie` with A/B bucket
+- `client` with viewport check
+
+```json
+[
+  {
+    "component": "conditional_content",
+    "_uid": "cc_outer_1",
+    "operator": "all",
+    "conditions": [
+      {
+        "component": "condition_date_range",
+        "_uid": "cond_date_1",
+        "start": "2026-04-01T00:00:00.000Z",
+        "end": "2026-05-31T23:59:59.000Z"
+      },
+      {
+        "component": "condition_locale",
+        "_uid": "cond_locale_1",
+        "locale": "en"
+      }
+    ],
+    "content": [
+      {
+        "component": "conditional_content",
+        "_uid": "cc_cookie_1",
+        "operator": "any",
+        "conditions": [
+          {
+            "component": "condition_cookie_equals",
+            "_uid": "cond_cookie_1",
+            "cookie_name": "feature_x",
+            "expected_value": "on",
+            "match_mode": "exact"
+          },
+          {
+            "component": "condition_ab_bucket",
+            "_uid": "cond_ab_1",
+            "cookie_name": "ab_bucket",
+            "bucket_id": "B"
+          }
+        ],
+        "content": [
+          {
+            "component": "conditional_content",
+            "_uid": "cc_client_1",
+            "operator": "all",
+            "conditions": [
+              {
+                "component": "condition_viewport",
+                "_uid": "cond_viewport_1",
+                "min_width_px": 1024
+              }
+            ],
+            "content": [
+              {
+                "component": "promo_banner",
+                "_uid": "promo_desktop_1",
+                "headline": "Desktop Feature X Promo"
+              }
+            ],
+            "fallback_content": [
+              {
+                "component": "promo_banner",
+                "_uid": "promo_mobile_1",
+                "headline": "Mobile Variant Promo"
+              }
+            ]
+          }
+        ],
+        "fallback_content": [
+          {
+            "component": "text_block",
+            "_uid": "fallback_cookie_1",
+            "text": "General audience content"
+          }
+        ]
+      }
+    ],
+    "fallback_content": [
+      {
+        "component": "text_block",
+        "_uid": "fallback_outer_1",
+        "text": "Campaign inactive or wrong locale"
+      }
+    ]
+  }
+]
+```
+
+### How this behaves at runtime
+- Outer `conditional_content` (`all`) passes only if date range and locale match.
+- Middle `conditional_content` (`any`) passes if either cookie condition matches.
+- Inner `conditional_content` (`all`) runs in browser and checks viewport width.
+- Each level can render `fallback_content` when conditions fail.
+
+### Editor workflow in Storyblok
+- Create/import the component schemas from `storyblok-conditional-template/storyblok/components/`.
+- In `conditional_content`, set:
+  - `content` whitelist to your real UI bloks (e.g. `promo_banner`, `text_block`, etc.)
+  - `conditions` whitelist already includes condition bloks.
+- Build conditions by adding nested condition bloks in the `conditions` field.
+- Choose `operator`:
+  - `all` for strict gating
+  - `any` for broad inclusion
+  - Prefer nesting separate `conditional_content` bloks per scope (as above), which aligns with the template’s recommended evaluation order.  
+If you want, I can also give you 2-3 marketing-friendly editor recipes (e.g. “campaign window”, “logged-in upsell”, “desktop-only hero”) in plain Storyblok form-field steps.
