@@ -15,9 +15,9 @@ None
 
 ### Cost
 
-| Tokens |   $   |
-| ------ | ----- |
-|  97.5K | $0.08 |
+| Model | Tokens |   $   | Lines of TS |
+| ----- | ------ | ----- | ----------- |
+| Auto  |  97.5K | $0.08 |         201 |
 
 ### Feedback
 `RequestID: 9eeb22cb-9b0d-406a-a7fe-4dc5e15107d6`

@@ -1,7 +1,14 @@
 # Game of Life
-## Initial
+## Pro
 
-Uses the rules from https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/javascript-typescript-code-quality-cursorrules-pro/.cursorrules
+Uses rules to attempt to make the output more professional.  
+For this minimal app, the result seems to have been overengineered compared to the initial attempt.
+
+### Compared with Initial
+- Double the cost using Auto, 58% more tokens, and 33% more lines of JS.
+- Uses vite+preact, rather than just vite.
+- Similar file structure.
+- Almost identical output.
 
 ### Prompt
 ```
@@ -11,13 +18,13 @@ Please place the contents inside @game-of-life/pro.
 ```
 
 ### .cursorrules
-None
+Uses the rules from https://github.com/PatrickJS/awesome-cursorrules/blob/main/rules/javascript-typescript-code-quality-cursorrules-pro/.cursorrules
 
 ### Cost
 
-| Tokens |   $   |
-| ------ | ----- |
-| 153.7K | $0.16 |
+| Model | Tokens |   $   | Lines of TS |
+| ----- | ------ | ----- | ----------- |
+| Auto  | 153.7K | $0.16 |         267 |
 
 ### Feedback
 `RequestID: c201174b-4a52-4339-abbd-c9700f770d92`
