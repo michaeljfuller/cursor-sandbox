@@ -1,0 +1,17 @@
+{
+  "name": "condition_local_storage",
+  "display_name": "Condition: Local storage key (client)",
+  "description": "Passes when localStorage has the key and optional expected value. Requires consent / browser context.",
+  "schema": {
+    "storage_key": {
+      "type": "text",
+      "display_name": "Key",
+      "required": true
+    },
+    "expected_value": {
+      "type": "text",
+      "display_name": "Expected value (optional)",
+      "description": "If empty, only key presence is checked."
+    }
+  }
+}

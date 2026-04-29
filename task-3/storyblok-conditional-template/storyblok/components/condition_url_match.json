@@ -1,0 +1,22 @@
+{
+  "name": "condition_url_match",
+  "display_name": "Condition: URL match (server, cache-safe)",
+  "description": "Passes when the request pathname matches a prefix or regex pattern. Same path yields same cached output.",
+  "schema": {
+    "match_type": {
+      "type": "options",
+      "display_name": "Match type",
+      "options": [
+        { "value": "prefix", "name": "Path prefix" },
+        { "value": "regex", "name": "Regex (pathname)" }
+      ],
+      "default_value": "prefix"
+    },
+    "pattern": {
+      "type": "text",
+      "display_name": "Pattern",
+      "description": "Prefix (e.g. /de/products) or regex without slashes delimiters (e.g. ^/de/).",
+      "required": true
+    }
+  }
+}

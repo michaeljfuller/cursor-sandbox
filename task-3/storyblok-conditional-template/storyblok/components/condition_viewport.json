@@ -1,0 +1,17 @@
+{
+  "name": "condition_viewport",
+  "display_name": "Condition: Viewport (client)",
+  "description": "Evaluates min/max width with matchMedia after hydration.",
+  "schema": {
+    "min_width_px": {
+      "type": "number",
+      "display_name": "Min width (px)",
+      "description": "Optional; omit for no minimum."
+    },
+    "max_width_px": {
+      "type": "number",
+      "display_name": "Max width (px)",
+      "description": "Optional; omit for no maximum."
+    }
+  }
+}

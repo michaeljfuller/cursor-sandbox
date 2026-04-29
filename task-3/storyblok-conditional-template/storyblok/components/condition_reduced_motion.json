@@ -1,0 +1,13 @@
+{
+  "name": "condition_reduced_motion",
+  "display_name": "Condition: Prefers reduced motion (client)",
+  "description": "Passes when prefers-reduced-motion: reduce matches.",
+  "schema": {
+    "when_reduced": {
+      "type": "boolean",
+      "display_name": "Pass when reduced motion is preferred",
+      "default_value": true,
+      "description": "If false, passes when user does not prefer reduced motion."
+    }
+  }
+}

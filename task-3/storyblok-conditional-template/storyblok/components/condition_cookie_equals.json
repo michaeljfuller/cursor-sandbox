@@ -1,0 +1,27 @@
+{
+  "name": "condition_cookie_equals",
+  "display_name": "Condition: Cookie equals (server, dynamic)",
+  "description": "Reads a cookie on the server. Route must not use a shared cached HTML for all users unless you segment cache (middleware/Vary).",
+  "schema": {
+    "cookie_name": {
+      "type": "text",
+      "display_name": "Cookie name",
+      "required": true,
+      "description": "Must be allowlisted in application code."
+    },
+    "expected_value": {
+      "type": "text",
+      "display_name": "Expected value",
+      "required": true
+    },
+    "match_mode": {
+      "type": "options",
+      "display_name": "Match mode",
+      "options": [
+        { "value": "exact", "name": "Exact" },
+        { "value": "regex", "name": "Regex" }
+      ],
+      "default_value": "exact"
+    }
+  }
+}

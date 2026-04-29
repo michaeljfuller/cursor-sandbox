@@ -1,0 +1,18 @@
+{
+  "name": "condition_ab_bucket",
+  "display_name": "Condition: A/B bucket (server, dynamic)",
+  "description": "Passes when the A/B assignment cookie matches an expected bucket id.",
+  "schema": {
+    "cookie_name": {
+      "type": "text",
+      "display_name": "Assignment cookie name",
+      "required": true
+    },
+    "bucket_id": {
+      "type": "text",
+      "display_name": "Bucket id",
+      "required": true,
+      "description": "Value that must match the cookie."
+    }
+  }
+}

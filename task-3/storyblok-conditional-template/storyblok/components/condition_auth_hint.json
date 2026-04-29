@@ -1,0 +1,12 @@
+{
+  "name": "condition_auth_hint",
+  "display_name": "Condition: Auth cookie present (server, dynamic)",
+  "description": "Passes when a cookie name exists (value ignored). Use only with dynamic routes or cache segmentation.",
+  "schema": {
+    "cookie_name": {
+      "type": "text",
+      "display_name": "Session / auth cookie name",
+      "required": true
+    }
+  }
+}

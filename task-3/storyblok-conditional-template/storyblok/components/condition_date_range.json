@@ -1,0 +1,17 @@
+{
+  "name": "condition_date_range",
+  "display_name": "Condition: Date range (server, cache-safe)",
+  "description": "Passes when the current server time is between start and end (ISO 8601). OK for page-level cache with revalidation or acceptable window drift.",
+  "schema": {
+    "start": {
+      "type": "datetime",
+      "display_name": "Start (inclusive)",
+      "required": true
+    },
+    "end": {
+      "type": "datetime",
+      "display_name": "End (inclusive)",
+      "required": true
+    }
+  }
+}

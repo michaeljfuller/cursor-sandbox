@@ -1,0 +1,49 @@
+{
+  "name": "conditional_content",
+  "display_name": "Conditional Content",
+  "description": "Shows nested content when all or any of the configured conditions pass. Supports server (cached), cookie-based, and client-only scopes.",
+  "schema": {
+    "content": {
+      "type": "bloks",
+      "display_name": "Content",
+      "description": "UI bloks shown when conditions pass.",
+      "restrict_type": "components",
+      "component_whitelist": []
+    },
+    "fallback_content": {
+      "type": "bloks",
+      "display_name": "Fallback content",
+      "description": "Optional bloks when conditions do not pass.",
+      "restrict_type": "components",
+      "component_whitelist": []
+    },
+    "conditions": {
+      "type": "bloks",
+      "display_name": "Conditions",
+      "description": "Add condition bloks. Mix scopes only when you understand caching; prefer nesting multiple Conditional Content bloks.",
+      "restrict_type": "components",
+      "component_whitelist": [
+        "condition_date_range",
+        "condition_url_match",
+        "condition_locale",
+        "condition_storyblok_toggle",
+        "condition_cookie_equals",
+        "condition_ab_bucket",
+        "condition_auth_hint",
+        "condition_viewport",
+        "condition_reduced_motion",
+        "condition_local_storage"
+      ]
+    },
+    "operator": {
+      "type": "options",
+      "display_name": "Operator",
+      "description": "How to combine multiple conditions.",
+      "options": [
+        { "value": "all", "name": "All (AND)" },
+        { "value": "any", "name": "Any (OR)" }
+      ],
+      "default_value": "all"
+    }
+  }
+}

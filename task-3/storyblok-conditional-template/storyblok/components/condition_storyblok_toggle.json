@@ -1,0 +1,12 @@
+{
+  "name": "condition_storyblok_toggle",
+  "display_name": "Condition: CMS toggle (server, cache-safe)",
+  "description": "Passes when the boolean is true. Resolved at fetch time; safe for static/ISR.",
+  "schema": {
+    "enabled": {
+      "type": "boolean",
+      "display_name": "Enabled",
+      "default_value": true
+    }
+  }
+}

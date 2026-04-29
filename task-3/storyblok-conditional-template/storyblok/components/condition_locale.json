@@ -1,0 +1,13 @@
+{
+  "name": "condition_locale",
+  "display_name": "Condition: Locale (server, cache-safe)",
+  "description": "Passes when the active locale matches. Pass locale from route params into the renderer context.",
+  "schema": {
+    "locale": {
+      "type": "text",
+      "display_name": "Locale code",
+      "description": "e.g. en, de-DE",
+      "required": true
+    }
+  }
+}
