@@ -1,5 +1,6 @@
 # Task 1
-See how a `.cursorrules` file affects output.
+See how a `.cursorrules` file affects output.  
+There are two apps. "Initial" uses an empty rules file, while "Senior" attempts to set a persona and set guide rails.
 
 ## AI comparison
 
@@ -68,6 +69,6 @@ Both give the canvas an aria-label.
 | Markup                       | JS-generated HTML                  | Declarative HTML                                |
 | Input robustness             | buttons check, null outside canvas | Simpler painting loop                           |
 
-**Overall**: 
+**Overall**:  
 **Initial** reads as the more maintainable, evolvable codebase for a team or for extending features (tests, variants of Life, different grid sizes), mainly due to module split, TypeScript, and build-time checks.  
 **Senior** is a tight vanilla implementation with nice touches (sparse draw, aria-pressed, static HTML, clear naming) but monolithic script and no types limit long-term maintainability compared to initial unless you later extract modules and add types or tests.
