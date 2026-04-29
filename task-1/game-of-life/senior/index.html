@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conway's Game of Life — 100×100</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="toolbar">
+        <h1>Conway's Game of Life</h1>
+        <p class="sub">100 × 100 grid</p>
+        <div class="controls">
+          <button type="button" id="btn-run" aria-pressed="false">Run</button>
+          <button type="button" id="btn-step">Step</button>
+          <button type="button" id="btn-random">Randomize</button>
+          <button type="button" id="btn-clear">Clear</button>
+        </div>
+      </header>
+      <main class="board-wrap">
+        <canvas id="board" width="600" height="600" aria-label="Game of life grid"></canvas>
+      </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
